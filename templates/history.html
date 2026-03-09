@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculation History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+            <h1><center>Calculation History</center></h1>
+
+    <div class="container">
+        {% if calculations %}
+            <table>
+                <tr>
+                    <th>First Number</th>
+                    <th>Operation</th>
+                    <th>Second Number</th>
+                    <th>Result</th>
+                </tr>
+                {% for c in calculations %}
+                <tr>
+                    <td>{{ c.a }}</td>
+                    <td>{{ c.op }}</td>
+                    <td>{{ c.b }}</td>
+                    <td>{{ c.result }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No calculations yet.</p>
+        {% endif %}
+        <a href="/">Back to Calculator</a>
+    </div>
+</body>
+</html>
